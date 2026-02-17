@@ -15,10 +15,22 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="products" element={<ProductsCatalog />} />
-          <Route path="products/:id" element={<ProductPage />} />
-          <Route path="create-product" element={<FormPage />} />
-          <Route path="*" element={<Navigate to="/products" replace />} />
+          <Route
+            path="EcosystemAlpha-test/products"
+            element={<ProductsCatalog />}
+          />
+          <Route
+            path="EcosystemAlpha-test/products/:id"
+            element={<ProductPage />}
+          />
+          <Route
+            path="EcosystemAlpha-test/create-product"
+            element={<FormPage />}
+          />
+          <Route
+            path="*"
+            element={<Navigate to="EcosystemAlpha-test/products" replace />}
+          />
         </Routes>
       </BrowserRouter>
     </Provider>

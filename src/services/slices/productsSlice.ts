@@ -39,10 +39,13 @@ export const productsSlice = createSlice({
     setFavoriteProduct: (state, action: PayloadAction<{ id: string }>) => {
       state.favoriteIds.push(action.payload.id);
     },
+    addedProduct: (state, action: PayloadAction<TypeProduct>) => {
+      state.allProducts.push(action.payload);
+    },
   },
 });
 
-export const { initProducts, removeProduct, setFavoriteProduct } =
+export const { initProducts, removeProduct, setFavoriteProduct, addedProduct } =
   productsSlice.actions;
 
 export default productsSlice.reducer;

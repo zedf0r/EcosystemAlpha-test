@@ -17,9 +17,11 @@ export const useProducts = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    publicApi.get("/products").then((response) => {
-      dispatch(initProducts(response.data));
-    });
+    if (allProducts.length === 0) {
+      publicApi.get("/products.json").then((response) => {
+        dispatch(initProducts(response.data));
+      });
+    }
   }, [dispatch]);
 
   const handleOnDelete = (product: TypeProduct) => {

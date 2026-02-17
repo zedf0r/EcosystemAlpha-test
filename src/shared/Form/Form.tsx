@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { publicApi } from "../config";
+import { useDispatch } from "react-redux";
+import { addedProduct } from "@/services/slices/productsSlice";
 
 type TypeForm = {
   title: string;
@@ -13,6 +15,7 @@ type TypeForm = {
 
 export const Form = () => {
   const [seed] = useState(uuidv4());
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -22,13 +25,20 @@ export const Form = () => {
 
   const onSubmit = (data: TypeForm) => {
     publicApi
-      .post("/products", {
+      .post("/products.json", {
         ...data,
         img: `https://picsum.photos/seed/${seed}/300/300`,
       })
       .then((response) => {
-        if (response.status === 201) {
-          navigate("/products");
+        if (response.status === 200) {
+          dispatch(
+            addedProduct({
+              ...data,
+              img: `https://picsum.photos/seed/${seed}/300/300`,
+              id: uuidv4(),
+            }),
+          );
+          navigate("/EcosystemAlpha-test/products");
         }
       });
   };
@@ -38,7 +48,7 @@ export const Form = () => {
       className={style.form}
       onSubmit={handleSubmit((data) => onSubmit(data))}
     >
-      <Link to="/products" className={style.form__link}>
+      <Link to="/EcosystemAlpha-test/products" className={style.form__link}>
         ← Назад
       </Link>
       <div className={style.form__inputs}>

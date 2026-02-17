@@ -32,7 +32,10 @@ export const ProductList = () => {
           <option value="favorite">Избранное</option>
         </select>
         <div className={style.button}>
-          <Button type="button" onClick={() => navigate("/create-product")}>
+          <Button
+            type="button"
+            onClick={() => navigate("/EcosystemAlpha-test/create-product")}
+          >
             Создать карточку
           </Button>
         </div>
