@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 import style from "./Form.module.scss";
 import { Button, Input } from "..";
 import { Link, useNavigate } from "react-router";
-import axios from "axios";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { publicApi } from "../config";
 
 type TypeForm = {
   title: string;
@@ -21,8 +21,8 @@ export const Form = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data: TypeForm) => {
-    axios
-      .post("http://localhost:3000/products", {
+    publicApi
+      .post("/products", {
         ...data,
         img: `https://picsum.photos/seed/${seed}/300/300`,
       })

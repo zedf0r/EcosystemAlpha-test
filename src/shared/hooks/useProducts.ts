@@ -5,9 +5,9 @@ import {
 } from "@/services/slices/productsSlice";
 import type { RootState } from "@/services/store/store";
 import type { TypeProduct } from "@/types/products.type";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { publicApi } from "../config";
 
 export const useProducts = () => {
   const [filter, setFilter] = useState<"all" | "favorite">("all");
@@ -17,7 +17,7 @@ export const useProducts = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get("http://localhost:3000/products").then((response) => {
+    publicApi.get("/products").then((response) => {
       dispatch(initProducts(response.data));
     });
   }, [dispatch]);
