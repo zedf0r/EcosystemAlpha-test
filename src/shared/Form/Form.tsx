@@ -4,7 +4,7 @@ import { Button, Input } from "..";
 import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { publicApi } from "../config";
+// import { publicApi } from "../config";
 import { useDispatch } from "react-redux";
 import { addedProduct } from "@/services/slices/productsSlice";
 
@@ -24,23 +24,18 @@ export const Form = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data: TypeForm) => {
-    publicApi
-      .post("/products.json", {
+    dispatch(
+      addedProduct({
         ...data,
         img: `https://picsum.photos/seed/${seed}/300/300`,
-      })
-      .then((response) => {
-        if (response.status === 200) {
-          dispatch(
-            addedProduct({
-              ...data,
-              img: `https://picsum.photos/seed/${seed}/300/300`,
-              id: uuidv4(),
-            }),
-          );
-          navigate("/EcosystemAlpha-test/products");
-        }
-      });
+        id: uuidv4(),
+      }),
+    );
+    navigate("/EcosystemAlpha-test/products");
+    // publicApi.post("/products.json", {
+    //   ...data,
+    //   img: `https://picsum.photos/seed/${seed}/300/300`,
+    // });
   };
 
   return (
