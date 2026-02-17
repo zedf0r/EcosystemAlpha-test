@@ -35,4 +35,15 @@
     max-height: 350px;
     font-size: 18px;
   }
+
+  .input__box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+
+    .error {
+      color: #f13d3d;
+      font-size: 12px;
+    }
+  }
 }

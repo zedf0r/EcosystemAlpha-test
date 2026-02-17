@@ -5,7 +5,7 @@ import {
 } from "@/services/slices/productsSlice";
 import type { RootState } from "@/services/store/store";
 import type { TypeProduct } from "@/types/products.type";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { publicApi } from "../config";
 
@@ -16,13 +16,11 @@ export const useProducts = () => {
   );
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (allProducts.length === 0) {
-      publicApi.get("/products.json").then((response) => {
-        dispatch(initProducts(response.data));
-      });
-    }
-  }, [dispatch]);
+  if (allProducts.length === 0) {
+    publicApi.get("/products.json").then((response) => {
+      dispatch(initProducts(response.data));
+    });
+  }
 
   const handleOnDelete = (product: TypeProduct) => {
     dispatch(removeProduct({ filter, product }));

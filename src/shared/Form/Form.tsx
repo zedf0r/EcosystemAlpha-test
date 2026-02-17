@@ -55,20 +55,23 @@ export const Form = () => {
           placeholder="Заголовок"
           minLength={10}
         />
-        <textarea
-          className={style.form__textarea}
-          placeholder="Описание"
-          {...register("description", {
-            required: {
-              value: true,
-              message: "Это поле обязательное",
-            },
-            minLength: {
-              value: 20,
-              message: "Минимальная длина 20 символов",
-            },
-          })}
-        ></textarea>
+        <div className={style.input__box}>
+          <textarea
+            className={style.form__textarea}
+            placeholder="Описание"
+            {...register("description", {
+              required: {
+                value: true,
+                message: "Это поле обязательное",
+              },
+              minLength: {
+                value: 20,
+                message: "Минимальная длина 20 символов",
+              },
+            })}
+          ></textarea>
+          <span className={style.error}>{errors.description?.message}</span>
+        </div>
       </div>
 
       <Button type="submit">Создать</Button>
