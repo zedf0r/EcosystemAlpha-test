@@ -14,7 +14,7 @@ export const ProductCard = () => {
 
   return (
     <article className={style.product}>
-      <Link to="/EcosystemAlpha-test/products" className={style.product__link}>
+      <Link to="/products" className={style.product__link}>
         ← Назад
       </Link>
       <div className={style.product__details}>

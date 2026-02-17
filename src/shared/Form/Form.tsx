@@ -31,7 +31,7 @@ export const Form = () => {
         id: uuidv4(),
       }),
     );
-    navigate("/EcosystemAlpha-test/products");
+    navigate("/products");
     // publicApi.post("/products.json", {
     //   ...data,
     //   img: `https://picsum.photos/seed/${seed}/300/300`,
@@ -43,7 +43,7 @@ export const Form = () => {
       className={style.form}
       onSubmit={handleSubmit((data) => onSubmit(data))}
     >
-      <Link to="/EcosystemAlpha-test/products" className={style.form__link}>
+      <Link to="/products" className={style.form__link}>
         ← Назад
       </Link>
       <div className={style.form__inputs}>
