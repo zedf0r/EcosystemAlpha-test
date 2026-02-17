@@ -8,7 +8,7 @@ Frontend-приложение для управления каталогом п�
 
 ## Технологии
 
-- React 18
+- React 19
 - TypeScript
 - Vite
 - React Router
