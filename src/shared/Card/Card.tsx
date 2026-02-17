@@ -9,30 +9,40 @@ export const Card = ({
   product,
   handleOnDelete,
   handleOnFavorite,
+  isFavorite,
 }: {
   product: TypeProduct;
   handleOnDelete: (product: TypeProduct) => void;
   handleOnFavorite: (product: TypeProduct) => void;
+  isFavorite: boolean;
 }) => {
   return (
-    <Link to="" className={style.card}>
+    <Link to={product.id} className={style.card}>
       <article key={product.id} className={style.card__detail}>
         <div className={style.card__img}>
-          <img src={product.img} alt="avatar" />
+          <img src={product.img} alt={product.title} />
         </div>
 
         <p className={style.card__title}>{product.title}</p>
         <p className={style.card__description}>{product.description}</p>
 
         <div
-          className={clsx(style.card__action, style.favorite__icon)}
-          onClick={() => handleOnFavorite(product)}
+          className={clsx(style.card__action, style.favorite__icon, {
+            [style.active]: isFavorite,
+          })}
+          onClick={(event) => {
+            event.preventDefault();
+            handleOnFavorite(product);
+          }}
         >
           <FavoriteIcon />
         </div>
         <div
           className={clsx(style.card__action, style.trash__icon)}
-          onClick={() => handleOnDelete(product)}
+          onClick={(event) => {
+            event.preventDefault();
+            handleOnDelete(product);
+          }}
         >
           <TrashIcon />
         </div>

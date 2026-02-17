@@ -1,17 +1,25 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import "@/assets/scss/global.scss";
 import { lazy } from "react";
+import { Provider } from "react-redux";
+import { store } from "@/services/store/store";
 
-const Products = lazy(() => import("@/pages/Products/Products"));
+const ProductsCatalog = lazy(
+  () => import("@/pages/ProductsCatalog/ProductsCatalog"),
+);
+const ProductPage = lazy(() => import("@/pages/ProductPage/ProductPage"));
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="products" element={<Products />} />
-        <Route path="products/:id" />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="products" element={<ProductsCatalog />} />
+          <Route path="products/:id" element={<ProductPage />} />
+          <Route path="*" element={<Navigate to="/products" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

@@ -1,0 +1,28 @@
+.product {
+  padding: 15px;
+  -webkit-box-shadow: 1px 0px 20px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 0px 20px 0px rgba(66, 68, 90, 1);
+  box-shadow: 1px 0px 20px 0px rgba(66, 68, 90, 1);
+  border-radius: 8px;
+
+  .product__link {
+    color: var(--blackColor);
+    transition: color 0.4s;
+
+    &:hover {
+      color: var(--grayColor);
+    }
+  }
+
+  .product__details {
+    margin-top: 20px;
+    display: flex;
+    column-gap: 20px;
+
+    .product__img {
+      img {
+        border-radius: 6px;
+      }
+    }
+  }
+}

@@ -1,2 +1,3 @@
 export { Card } from "./Card/Card";
-export { CardList } from "./CardList/CardList";
+export { ProductList } from "./ProductList/ProductList";
+export { ProductCard } from "./ProductCard/ProductCard";
