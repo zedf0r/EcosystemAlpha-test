@@ -8,6 +8,7 @@ const ProductsCatalog = lazy(
   () => import("@/pages/ProductsCatalog/ProductsCatalog"),
 );
 const ProductPage = lazy(() => import("@/pages/ProductPage/ProductPage"));
+const FormPage = lazy(() => import("@/pages/FormPage/FormPage"));
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="products" element={<ProductsCatalog />} />
           <Route path="products/:id" element={<ProductPage />} />
+          <Route path="create-product" element={<FormPage />} />
           <Route path="*" element={<Navigate to="/products" replace />} />
         </Routes>
       </BrowserRouter>

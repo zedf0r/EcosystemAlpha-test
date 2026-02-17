@@ -1,0 +1,38 @@
+.form {
+  display: flex;
+  padding: 15px;
+  border-radius: 8px;
+  flex-direction: column;
+  margin: 0 auto;
+  row-gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  -webkit-box-shadow: 1px 0px 20px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 0px 20px 0px rgba(66, 68, 90, 1);
+  box-shadow: 1px 0px 20px 0px rgba(66, 68, 90, 1);
+
+  .form__link {
+    color: var(--blackColor);
+    transition: color 0.4s;
+
+    &:hover {
+      color: var(--grayColor);
+    }
+  }
+
+  .form__inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  .form__textarea {
+    border: 1px solid var(--blackColor);
+    padding: 5px 10px;
+    border-radius: 6px;
+    resize: vertical;
+    min-height: 100px;
+    max-height: 350px;
+    font-size: 18px;
+  }
+}

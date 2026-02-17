@@ -1,6 +1,8 @@
 import style from "./ProductList.module.scss";
 import { Card } from "../Card/Card";
 import { useProducts } from "../hooks/useProducts";
+import { Button } from "..";
+import { useNavigate } from "react-router";
 
 type TypeFilter = "all" | "favorite";
 
@@ -12,6 +14,7 @@ export const ProductList = () => {
     productsToRender,
     favoriteSet,
   } = useProducts();
+  const navigate = useNavigate();
 
   return (
     <div className={style.wrapper}>
@@ -28,6 +31,11 @@ export const ProductList = () => {
           <option value="all">Все</option>
           <option value="favorite">Избранное</option>
         </select>
+        <div className={style.button}>
+          <Button type="button" onClick={() => navigate("/create-product")}>
+            Создать карточку
+          </Button>
+        </div>
       </div>
 
       <div className={style.list}>

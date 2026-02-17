@@ -5,6 +5,7 @@
 
   .filters {
     display: flex;
+    align-items: center;
     column-gap: 15px;
 
     select {
@@ -13,6 +14,10 @@
       border-radius: 6px;
       padding: 2px 5px;
     }
+  }
+
+  .button {
+    margin-left: auto;
   }
 
   .list {

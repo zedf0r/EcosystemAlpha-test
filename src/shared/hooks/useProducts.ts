@@ -16,6 +16,12 @@ export const useProducts = () => {
   );
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    axios.get("http://localhost:3000/products").then((response) => {
+      dispatch(initProducts(response.data));
+    });
+  }, [dispatch]);
+
   const handleOnDelete = (product: TypeProduct) => {
     dispatch(removeProduct({ filter, product }));
   };
@@ -25,12 +31,6 @@ export const useProducts = () => {
       dispatch(setFavoriteProduct({ id: product.id }));
     }
   };
-
-  useEffect(() => {
-    axios.get("http://localhost:3000/products").then((response) => {
-      dispatch(initProducts(response.data));
-    });
-  }, [dispatch]);
 
   const favoriteProducts = allProducts.filter((product) =>
     favoriteIds.includes(product.id),
