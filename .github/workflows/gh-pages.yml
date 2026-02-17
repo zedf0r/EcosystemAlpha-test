@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run json-server
-        run: npm run start-server
+        run: npm run start-server &
       - name: Build
         run: npm run build
       - name: Setup Pages
