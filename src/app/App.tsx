@@ -13,24 +13,12 @@ const FormPage = lazy(() => import("@/pages/FormPage/FormPage"));
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/EcosystemAlpha-test">
         <Routes>
-          <Route
-            path="EcosystemAlpha-test/products"
-            element={<ProductsCatalog />}
-          />
-          <Route
-            path="EcosystemAlpha-test/products/:id"
-            element={<ProductPage />}
-          />
-          <Route
-            path="EcosystemAlpha-test/create-product"
-            element={<FormPage />}
-          />
-          <Route
-            path="*"
-            element={<Navigate to="EcosystemAlpha-test/products" replace />}
-          />
+          <Route path="products" element={<ProductsCatalog />} />
+          <Route path="products/:id" element={<ProductPage />} />
+          <Route path="create-product" element={<FormPage />} />
+          <Route path="*" element={<Navigate to="/products" replace />} />
         </Routes>
       </BrowserRouter>
     </Provider>
