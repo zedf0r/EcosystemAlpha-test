@@ -9,5 +9,5 @@ export default defineConfig({
       "@": resolve(__dirname, "./src"),
     },
   },
-  base: "/EcosystemAlpha-test/",
+  base: "/<REPO>/",
 });
